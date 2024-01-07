@@ -6,7 +6,7 @@ app:
   # FILE：保存日志到文件，则下面的log_path必须配置
   # CONSOLE：打印到控制台
   # 【必填】日志记录类型：SERVER、FILE、CONSOLE，默认设置为CONSOLE；
-  log_type: 'CONSOLE'
+  log_type: CONSOLE
 
   # 日志文件的路径，log_type为FILE时生效
   # 如 windows路径： 'D:\Development\SourceCode\notion_sync_douban\logs'
@@ -16,8 +16,8 @@ app:
   log_server: 127.0.0.1:514
 
 # 【可选】 建议填写，以免触发触发豆瓣的反爬虫机制浏览器获取
-user_agent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML,
-  like Gecko) Chrome/109.0.0.0 Safari/537.36'
+user_agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML,
+  like Gecko) Chrome/109.0.0.0 Safari/537.36
 
 # 豆瓣参数
 douban:
@@ -25,7 +25,7 @@ douban:
   user_id: ezhil
 
   # 【必填】 1. 填写为0时，监控所有的  | 2. 填写非零的正整数，则监控x天内的。比如填写30，则监控一个月内的；365，则监控一年内的。
-  day:1
+  day: 1
 
   # 【可选】从浏览器中获取
   # 填写后可解决某些导入失败的问题，但有被豆瓣封号的风险，请知悉
@@ -51,3 +51,4 @@ notion:
   movie_database_id: ''
   music_database_id: ''
   game_database_id: ''
+
