@@ -1,0 +1,32 @@
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+
+# Byte-compiled / optimized / DLL files
+__pychche__/
+*.py[cod]
+*&py.class
+
+# 编译文件
+build/
+dist/
+*.exe
+*.spec
+
+# 一些文档
+/doc/config.yaml
+/doc/auto.yaml
+test.py
+setup.cfg
+Dockerfile
+
+# 临时文件
+tmp/
+
+# 日志文件
+logs
