@@ -1,0 +1,54 @@
+# 配置文件
+# 请依照说明填写各项参数
+
+app:
+  # SERVER：可将日志输出到群晖的日志中心便于查看，必须log_server必须配置
+  # FILE：保存日志到文件，则下面的log_path必须配置
+  # CONSOLE：打印到控制台
+  # 【必填】日志记录类型：SERVER、FILE、CONSOLE，默认设置为CONSOLE；
+  log_type: CONSOLE
+
+  # 日志文件的路径，log_type为FILE时生效
+  # 如 windows路径： 'D:\Development\SourceCode\notion_sync_douban\logs'
+  log_path: ''
+
+  # 群晖日志中心IP和端口，log_type为SERVER时生效。端口一般是514，只需要改动IP为群晖的IP。
+  log_server: 127.0.0.1:514
+
+# 【可选】 建议填写，以免触发触发豆瓣的反爬虫机制浏览器获取
+user_agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML,
+  like Gecko) Chrome/109.0.0.0 Safari/537.36
+
+# 豆瓣参数
+douban:
+  # 【必填】
+  user_id: ezhil
+
+  # 【必填】 1. 填写为0时，监控所有的  | 2. 填写非零的正整数，则监控x天内的。比如填写30，则监控一个月内的；365，则监控一年内的。
+  day: 1
+
+  # 【可选】从浏览器中获取
+  # 填写后可解决某些导入失败的问题，但有被豆瓣封号的风险，请知悉
+  cookies: 'bid=2VloIZdbDjA; douban-fav-remind=1; ll="118129"; __utmv=30149280.18017;
+    _pk_id.100001.8cb4=d2077994abc7bded.1674396068.; __yadk_uid=eGYJ1xSooaUfhjLnNXDpzmFvnSpjFNL7;
+    ap_v=0,6.0; _pk_ref.100001.8cb4=%5B%22%22%2C%22%22%2C1704393428%2C%22https%3A%2F%2Fcn.bing.com%2F%22%5D;
+    _pk_ses.100001.8cb4=1; __utma=30149280.303884274.1674396070.1704379739.1704393430.5;
+    __utmc=30149280; __utmz=30149280.1704393430.5.3.utmcsr=cn.bing.com|utmccn=(referral)|utmcmd=referral|utmcct=/;
+    __utmt=1; dbcl2="180179593:P9xvDjiEJ+w"; ck=3ZEo; push_noty_num=0; push_doumail_num=0;
+    __utmb=30149280.34.6.1704394718035 Host: www.douban.com'
+
+# notion获取
+notion:
+  # 打开notion -> setting & Members -> integrations -> 最后一行【Develop your own integrations】
+  # 或者复制此链接 https://www.notion.so/my-integrations 在浏览器打开
+  token: secret_sPSEbWj9CelPE1prftIPAc6sfixTs8d9IENFv75OZVk
+
+  # 在浏览器打开你要导入的notion页面，复制后面的一串数字
+  page_id: 05204d5ebdd849be9969fd1c536d1713
+
+  # 以下为自动配置，请勿改动
+  book_database_id: facd6ad2a33c4e3eae9b5f9d720c56b1
+  movie_database_id: 2f31d2f891ed40118868703b6925c897
+  music_database_id: f82f26fbfa574813a2b8114d6aa504f0
+  game_database_id: 936ce4231a914a989312127b01973ab4
+
