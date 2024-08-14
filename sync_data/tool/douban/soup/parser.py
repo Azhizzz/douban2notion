@@ -433,19 +433,22 @@ class ParserHtmlText:
 
     def get_my_movie_rating(self):
         try:
-            my_rating = self.soup.select_one("#n_rating").get('value')
+            my_rating = self.soup.select_one("#n_rating")['value']
             log_detail.debug(f"【RUN】- my_rating: {my_rating}")
         except Exception as e:
-            log_detail.warn(f"【WARN】获取个人评分失败{e}")
+            log_detail.warn(f"【WARN】获取个人评分失败: {e}")
             my_rating = ''
+    
         try:
             my_comment = self.soup.select_one(
                 "#interest_sect_level > div.j.a_stars > span:last-of-type").contents[0].strip()
             log_detail.debug(f"【RUN】- my_comment: {my_comment}")
         except Exception as e:
-            log_detail.warn(f"【WARN】获取个人评价失败{e}")
+            log_detail.warn(f"【WARN】获取个人评价失败: {e}")
             my_comment = ''
+    
         return my_comment, my_rating
+
 
     def get_my_book_rating(self):
         try:
