@@ -433,7 +433,7 @@ class ParserHtmlText:
 
     def get_my_movie_rating(self):
         try:
-            my_rating = self.soup.select_one("#my_rating").get('value')
+            my_rating = self.soup.select_one("#n_rating").get('value')
             log_detail.debug(f"【RUN】- my_rating: {my_rating}")
         except Exception as e:
             log_detail.warn(f"【WARN】获取个人评分失败{e}")
@@ -449,7 +449,7 @@ class ParserHtmlText:
 
     def get_my_book_rating(self):
         try:
-            my_rating = self.soup.select_one("#my_rating").get('value')
+            my_rating = self.soup.select_one("#n_rating").get('value')
             log_detail.debug(f"【RUN】- my_rating: {my_rating}")
         except Exception as e:
             log_detail.warn(f"【WARN】获取个人评分失败{e}")
@@ -474,7 +474,7 @@ class ParserHtmlText:
             log_detail.error(f"【ERROR】- {e}")
             my_date = ''
         try:
-            my_rating = self.soup.select_one("#my_rating").get('value')
+            my_rating = self.soup.select_one("#n_rating").get('value')
             log_detail.debug(f"【RUN】- my_rating: {my_rating}")
         except Exception as e:
             log_detail.error(f"【ERROR】- {e}")
