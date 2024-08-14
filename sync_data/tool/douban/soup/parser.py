@@ -434,7 +434,10 @@ class ParserHtmlText:
     def get_my_movie_rating(self):
         log_detail.info("开始获取个人评分和评价")
         try:
-            my_rating = self.soup.select_one("#n_rating")['value']
+            #my_rating = self.soup.select_one("#n_rating")['value']
+            element = soup.select_one('input[id="n_rating"][type="hidden"]')
+            value = element['value']
+            my_rating = soup.select('input[id="n_rating"][type="hidden"]')
             log_detail.info(f"【RUN】- my_rating: {my_rating}")
         except Exception as e:
             log_detail.error(f"【ERROR】获取个人评分失败: {e}")
