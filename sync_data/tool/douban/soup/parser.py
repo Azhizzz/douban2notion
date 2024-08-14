@@ -432,11 +432,12 @@ class ParserHtmlText:
         return game_dict
 
     def get_my_movie_rating(self):
+        log_detail.debug("开始获取个人评分和评价")
         try:
             my_rating = self.soup.select_one("#n_rating")['value']
             log_detail.debug(f"【RUN】- my_rating: {my_rating}")
         except Exception as e:
-            log_detail.warn(f"【WARN】获取个人评分失败: {e}")
+            log_detail.error(f"【ERROR】获取个人评分失败: {e}")
             my_rating = ''
     
         try:
@@ -444,10 +445,12 @@ class ParserHtmlText:
                 "#interest_sect_level > div.j.a_stars > span:last-of-type").contents[0].strip()
             log_detail.debug(f"【RUN】- my_comment: {my_comment}")
         except Exception as e:
-            log_detail.warn(f"【WARN】获取个人评价失败: {e}")
+            log_detail.error(f"【ERROR】获取个人评价失败: {e}")
             my_comment = ''
     
+        log_detail.debug("结束获取个人评分和评价")
         return my_comment, my_rating
+
 
 
     def get_my_book_rating(self):
