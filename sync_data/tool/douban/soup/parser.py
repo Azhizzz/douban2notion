@@ -432,24 +432,14 @@ class ParserHtmlText:
         return game_dict
 
     def get_my_movie_rating(self):
-        log_detail.info("开始获取个人评分和评价")
-        try:
-            my_rating = self.soup.select_one("#n_rating")['value']
-            log_detail.info(f"【RUN】- my_rating: {my_rating}")
-        except Exception as e:
-            log_detail.error(f"【ERROR】获取个人评分失败: {e}")
-            my_rating = ''
-    
-        try:
-            my_comment = self.soup.select_one(
-                "#interest_sect_level > div.j.a_stars > span:last-of-type").contents[0].strip()
-            log_detail.info(f"【RUN】- my_comment: {my_comment}")
-        except Exception as e:
-            log_detail.error(f"【ERROR】获取个人评价失败: {e}")
-            my_comment = ''
-    
-        log_detail.info("结束获取个人评分和评价")
-        return my_comment, my_rating
+        rating_input = self.soup.find(id='n_rating')
+        if rating_input and 'value' in rating_input.attrs:
+            my_rating = rating_input['value']
+            print(f"找到评分: {my_rating}")
+        else:
+            print("没有找到#n_rating元素或其value属性")
+        # return my_comment, my_rating
+        return my_rating
 
 
 
